@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  .chat-container
+    .chat-header
+      div
+        h2 Chat Room
+        span Logged in as #{user}
+      a(href="/logout") Logout
+
+    ul#messages
+      each msg in messages
+        li
+          strong #{msg.user}:
+          |  #{msg.text}
+
+    .chat-input
+      input#msg(type="text", placeholder="> type your message...")
+      button(onclick="sendMessage()") Send
+
+    script.
+      const USERNAME = "!{user}"
+    script(src="/socket.io/socket.io.js")
+    script(src="/client.js")

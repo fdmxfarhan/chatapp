@@ -1,0 +1,255 @@
+/* ===== Global ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #0b0f0c;
+    color: #00ff9c;
+    font-family: "Courier New", Courier, monospace;
+    min-height: 100vh;
+    /* ← was height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    /* mobile breathing space */
+}
+
+
+
+/* ===== Chat Container ===== */
+.chat-container {
+    width: 100%;
+    max-width: 900px;
+    height: 90vh;
+    background: #050807;
+    border: 1px solid #00ff9c33;
+    box-shadow: 0 0 30px #00ff9c22;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== Header ===== */
+.chat-header {
+    padding: 12px 16px;
+    border-bottom: 1px solid #00ff9c33;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.chat-header span {
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+.chat-header a {
+    color: #ff5555;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.chat-header a:hover {
+    text-shadow: 0 0 8px #ff5555;
+}
+
+/* ===== Messages ===== */
+#messages {
+    list-style: none;
+    padding: 15px;
+    margin: 0;
+    flex: 1;
+    overflow-y: auto;
+}
+
+#messages li {
+    margin-bottom: 8px;
+    line-height: 1.4;
+    animation: fadeIn 0.2s ease-in;
+}
+
+#messages strong {
+    color: #00eaff;
+}
+
+/* Scrollbar */
+#messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+#messages::-webkit-scrollbar-thumb {
+    background: #00ff9c55;
+}
+
+/* ===== Input ===== */
+.chat-input {
+    display: flex;
+    border-top: 1px solid #00ff9c33;
+}
+
+#msg {
+    flex: 1;
+    background: #050807;
+    border: none;
+    color: #00ff9c;
+    padding: 12px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+}
+
+#msg::placeholder {
+    color: #00ff9c55;
+}
+
+button {
+    background: #00ff9c;
+    border: none;
+    padding: 0 20px;
+    font-family: inherit;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #00ffaa;
+    box-shadow: 0 0 15px #00ff9c;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(2px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Auth Forms (Login / Register) ===== */
+form {
+    background: #050807;
+    border: 1px solid #00ff9c33;
+    padding: 30px;
+    box-shadow: 0 0 25px #00ff9c22;
+    width: 320px;
+}
+
+form h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+form input {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px 12px;
+    background: #020403;
+    border: 1px solid #00ff9c55;
+    color: #00ff9c;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+    outline: none;
+}
+
+form input::placeholder {
+    color: #00ff9c66;
+}
+
+form input:focus {
+    border-color: #00ffaa;
+    box-shadow: 0 0 10px #00ff9c44;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background: #00ff9c;
+    border: none;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form button:hover {
+    box-shadow: 0 0 15px #00ff9c;
+}
+
+form a {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #00eaff;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+form a:hover {
+    text-shadow: 0 0 8px #00eaff;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .chat-container {
+        height: 95vh;
+    }
+
+    .chat-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .chat-header h2 {
+        font-size: 50px;
+    }
+
+    .chat-header a {
+        align-self: flex-end;
+    }
+
+    #messages {
+        padding: 10px;
+        font-size: 25px;
+    }
+
+    .chat-input {
+        flex-direction: column;
+    }
+
+    #msg {
+        padding: 10px;
+        font-size: 26px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+
+    form {
+        width: 100%;
+        max-width: 360px;
+        padding: 20px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .chat-container {
+        max-width: 100%;
+    }
+}
+
+#messages li {
+    word-break: break-word;
+}

@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  form(method="post")
+    h2 Login
+
+    input(type="text", name="username", placeholder="Username")
+    input(type="password", name="password", placeholder="Password")
+
+    button(type="submit") Login
+
+    a(href="/register") Register
